@@ -1,0 +1,30 @@
+{
+  "name": "Weather Extension",
+  "version": "1.0",
+  "description": "Get the weather information.",
+  "manifest_version" : 2,
+  "browser_action": {
+    "default_title": "Weather Extension",
+    "default_icon": "./src/img/icon.png",
+    "default_popup": "weather.html"
+  },
+  "background" : {
+      "page" : "weather.html"
+  },
+  "content_scripts": [
+   {
+      "matches": ["http://*/*", "https://*/*", "http://maps.googleapis.com/maps/api/js?sensor=false"],
+      "css"    : ["./src/css/styles.css"],
+      "js"     : ["./src/js/weather.js"]
+   }
+  ],
+  "content_security_policy": "connect-src http://samples.openweathermap.org http://api.openweathermap.org/data/2.5/weather https://maps.google.com https://maps.gstatic.com http://maps.googleapis.com/maps/api/js?sensor=false; script-src 'self' https://maps.google.com https://maps.gstatic.com https://maps.googleapis.com  'unsafe-eval' https://fonts.googleapis.com; object-src 'self'",
+  "web_accessible_resources": [
+    "src/css/styles.css",
+    "src/js/weather.js"
+  ],
+    "permissions": [
+    "activeTab",
+    "geolocation"
+  ]
+}

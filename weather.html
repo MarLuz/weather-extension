@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Weather Extension" />
+        <meta name="keywords" content="Weather Extension" />
+        <meta name="robots" content="all" />
+        <meta name="expires" content="never" />
+        <meta name="robots" content="index, follow" />
+        <title>Weather Extension</title>
+        <!--Js Scripts-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,geometry"></script>
+        <script type="text/javascript" src="./src/js/weather.js"></script>
+        <!--Styles-->
+        <style>
+            html, body {
+                margin: 0;
+                background: rgba(123,185,242,1);
+                background: -moz-linear-gradient(top, rgba(123,185,242,1) 0%, rgba(32,124,229,1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(123,185,242,1)), color-stop(100%, rgba(32,124,229,1)));
+                background: -webkit-linear-gradient(top, rgba(123,185,242,1) 0%, rgba(32,124,229,1) 100%);
+                background: -o-linear-gradient(top, rgba(123,185,242,1) 0%, rgba(32,124,229,1) 100%);
+                background: -ms-linear-gradient(top, rgba(123,185,242,1) 0%, rgba(32,124,229,1) 100%);
+                background: linear-gradient(to bottom, rgba(123,185,242,1) 0%, rgba(32,124,229,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7bb9f2', endColorstr='#207ce5', GradientType=0 );
+            }
+            #wrapper {
+                padding: 5px 5px;
+                width: 400px;
+                height: auto;
+                color: #FFF;
+                margin-bottom: 20px;
+            }
+            #actions{
+               text-align: center;
+               margin-top:10px;  
+            }
+            #actions button {
+                height: 50px;
+                background: #6AC5F0;
+                border: none;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+                color: #FFF;
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            header {
+                color: #FFF;
+                padding: 5px;
+                border-bottom: dotted 1px #FFF;
+            }
+            header h1 {
+                float: left;
+                font-size: 21px;
+                line-height: 60px;
+            }
+            header figure {float: right; }
+            input[type="text"] {
+                display: block;
+                width: 100%;
+                padding: .375rem .75rem;
+                font-size: 1rem;
+                line-height: 1.5;
+                color: #495057;
+                background-color: #fff;
+                background-image: none;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            }
+            #details {
+                margin-top: 14px;
+                font-size: 15px;
+                text-align: center;
+            }
+            #details ul li {list-style: none; }
+            #details ul  { margin: 0; padding:0 }
+            b.title { color: #FCDE5E; }
+        </style>
+    </head>
+    <body id="extension">
+        <header>
+            <h1>Hello! Welcome to WeatherDL</h1>
+            <figue><img src="./src/img/icon-header.png" width="100"/></figue>
+        </header>
+    
+        <div id="wrapper">
+            <div id="actions">
+                <input type="text" id="input-search"/>
+            </div>
+            <div id="details"></div>
+        </div>
+        <script type="text/template" id="detailTemplate">
+            <h2>%%place%%</h2
+            <hr>
+            <ul>
+                <li><p>%%description%%</p><img src="http://openweathermap.org/img/w/%%icon%%.png" /></li>
+                <li><p><b class="title">Temperature </b></p>  <b>Min</b> %%temp_min%% / <b>Máx</b> %%temp_max%%</li>
+                <li><p><b class="title">Pressure </b></p>  %%pressure%%</li>
+                <li><p><b class="title">Humidity </b></p>  %%hum%%</li>
+                <li><p><b class="title">Wind </b></p>  %%wind%%</li>
+            </ul>
+        </script>
+    </body>
+</html>
